@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hospitality Management System - Registration</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url('reg.jpg');
+			background-size: cover;
+			background-position: center;
+			color: #fff;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 50%;
+			margin: 50px auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: rgba(0, 0, 0, 0.5);
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		h2 {
+			text-align: center;
+			color: #fff;
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			color: #fff;
+		}
+		input[type="text"], input[type="password"], input[type="email"], input[type="submit"], textarea, select {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			color: #000;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+<body>
+    <div class="container bg-highlight">
+        <h2>Register</h2>
+        <form id="registrationForm" action="register_details.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <div class="checkbox-group">
+                <label>Hobby:</label>
+                <label><input type="checkbox" name="hobby" value="Reading"> Reading</label>
+                <label><input type="checkbox" name="hobby" value="Traveling"> Traveling</label>
+                <label><input type="checkbox" name="hobby" value="Cooking"> Cooking</label>
+            </div>
+            <div class="radio-group">
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female" required> Female</label>
+            </div>
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">UK</option>
+                <option value="Australia">Australia</option>
+            </select>
+            <label for="service">Service Interested In:</label>
+            <select id="service" name="service" required>
+                <option value="">Select Service</option>
+                <option value="Hotel Booking">Hotel Booking</option>
+                <option value="Room Booking">Room Booking</option>
+                <option value="Table Booking">Table Booking</option>
+                <option value="Catering Services">Catering Services</option>
+                <option value="Travel Booking">Travel Booking</option>
+                <option value="Event Management">Event Management</option>
+            </select>
+            <input type="submit" name="save" value="Register">
+        </form>
+        </div>
+        </body>
+        </html>
