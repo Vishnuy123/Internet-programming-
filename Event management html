@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Management</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 18px;
+			background-image: url('event.jpg');
+			background-size: cover;
+			background-position: center;
+			color: #fff;
+		}
+		.title {
+			text-align: center;
+			margin-bottom: 50px;
+		}
+		.form-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		form {
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #fff;
+		}
+		input[type="text"], input[type="datetime-local"] {
+			color: #000;
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		button[type="button"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<h2>Event Management</h2>
+	</div>
+	<div class="form-container">
+		<form>
+			<label for="eventname">Event Name:</label>
+			<input type="text" id="eventname" name="eventname" required>
+			<label for="eventdate">Event Date and Time:</label>
+			<input type="datetime-local" id="eventdate" name="eventdate" required>
+			<label for="venue">Venue:</label>
+			<input type="text" id="venue" name="venue" required>
+			<label for="guests">Number of Guests:</label>
+			<input type="number" id="guests" name="guests" required>
+			<button type="button" onclick="calculateCost()">Calculate Cost</button>
+			<div id="costDetails"></div>
+		</form>
+	</div>
+	<script>
+		function calculateCost() {
+			var venue = document.getElementById("venue").value;
+			var guests = document.getElementById("guests").value;
+			var eventdate = document.getElementById("eventdate").value;
+			
+			// Venue rates (per guest)
+			var venueRates = {
+				"Small Hall": 500,
+				"Medium Hall": 750,
+				"Large Hall": 1000
+			};
+			
+			// Catering rates (per guest)
+			var cateringRates = {
+				"Basic": 200,
+				"Standard": 350,
+				"Premium": 500
+			};
+			
+			// Decorations rates (flat rate)
+			var decorationsRates = {
+				"Basic": 5000,
+				"Standard": 10000,
+				"Premium": 15000
+			};
+			
+			// Calculate total cost
+			var totalCost = 0;
+			totalCost += venueRates[venue] * guests;
+			totalCost += cateringRates["Standard"] * guests; // Assuming standard catering
+			totalCost += decorationsRates["Basic"]; // Assuming basic decorations
+			
+			// Display total cost
+			document.getElementById("costDetails").innerHTML = "Total Cost: ₹" + totalCost + "<br>Breakdown:<br>Venue: ₹" + venueRates[venue] * guests + "<br>Catering: ₹" + cateringRates["Standard"] * guests + "<br>Decorations: ₹" + decorationsRates["Basic"];
+		}
+	</script>
+</body>
+</html>
