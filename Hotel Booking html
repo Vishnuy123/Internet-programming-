@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hotel Booking</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 18px;
+			background-image: url('hotel3.jpg');
+			background-size: cover;
+			background-position: center;
+			color: #fff; /* White font color */
+		}
+		.title { 
+			text-align: center;
+			margin-bottom: 50px;
+		}
+		.form-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		form {
+			background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #fff; /* White font color */
+		}
+		input[type="number"], input[type="datetime-local"] {
+			color: #000; /* Change text color to black */
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		button[type="button"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<body>
+		<div class="title">
+			<h2>Hotel Booking</h2>
+		</div>
+		<div class="form-container">
+			<form id="hotelForm" action="hotel.php" method="post">
+				<label for="rooms">Number of Rooms:</label>
+				<input type="number" id="rooms" name="rooms" required>
+				<label for="people">Number of People:</label>
+				<input type="number" id="people" name="people" required>
+				<label for="beds">Number of Beds:</label>
+				<input type="number" id="beds" name="beds" required>
+				<label for="checkin">Check-in Date and Time:</label>
+				<input type="datetime-local" id="checkin" name="checkin" required>
+				<label for="checkout">Check-out Date and Time:</label>
+				<input type="datetime-local" id="checkout" name="checkout" required>
+				<button type="button" onclick="calculateCost()">Calculate Cost</button>
+			    <div id="costDetails"></div>
+			</form>
+		</div>
+		<script>
+			function calculateCost() {
+				var rooms = document.getElementById("rooms").value;
+				var people = document.getElementById("people").value;
+				var beds = document.getElementById("beds").value;
+				var checkin = document.getElementById("checkin").value;
+				var checkout = document.getElementById("checkout").value;
+				var costPerRoom = 100;
+				var costPerPerson = 20;
+				var costPerBed = 10;
+				var totalCost = (rooms * costPerRoom) + (people * costPerPerson) + (beds * costPerBed);
+				var checkinDate = new Date(checkin);
+				var checkoutDate = new Date(checkout);
+				var duration = (checkoutDate - checkinDate) / (1000 * 60 * 60 * 24);
+				totalCost *= duration;
+				document.getElementById("costDetails").innerHTML = "Total Cost: ₹" + totalCost + "<br>Breakdown:<br>Rooms: ₹" + (rooms * costPerRoom) + "<br>People: ₹" + (people * costPerPerson) + "<br>Beds: ₹" + (beds * costPerBed) + "<br>Duration: " + duration + " nights";
+			}
+		</script>
+	</body>
+</html>
