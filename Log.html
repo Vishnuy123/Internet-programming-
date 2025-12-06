@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hospitality Management System - Login</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url('1.jpg');
+			background-size: cover;
+			background-position: center;
+			color: #fff; /* White font color */
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 50%;
+			margin: 50px auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		h2 {
+			text-align: center;
+			color: #fff; /* White font color */
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			color: #fff; /* White font color */
+		}
+		input[type="text"], input[type="password"], input[type="email"], input[type="submit"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			color: #000; /* Black font color */
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm" action="details.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <input type="submit" name="save" value="Login">
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let email = document.getElementById('email').value;
+            // Basic validation
+            if (username === "") {
+                alert("Username is required");
+                return false;
+            }
+            if (password === "") {
+                alert("Password is required");
+                return false;
+            }
+            if (email === "") {
+                alert("Email is required");
+                return false;
+            }
+            // Email format validation
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
