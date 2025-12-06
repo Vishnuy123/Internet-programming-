@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Catering Services</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 18px;
+			background-image: url('cater.jpg');
+			background-size: cover;
+			background-position: center;
+			color: #fff;
+		}
+		.title {
+			text-align: center;
+			margin-bottom: 50px;
+		}
+		.form-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		form {
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #fff;
+		}
+		select, input[type="number"] {
+			color: #000;
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		button[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<h2>Catering Services</h2>
+	</div>
+	<div class="form-container">
+		<form id="cateringForm" action="catering.php" method="post">
+			<div class="form-group">
+				<label for="cuisine">Cuisine Type:</label>
+				<select id="cuisine" name="cuisine">
+					<option value="italian">Italian</option>
+					<option value="chinese">Chinese</option>
+					<option value="indian">Indian</option>
+					<option value="mexican">Mexican</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="people">Number of People:</label>
+				<input type="number" id="people" name="people" min="1" required>
+			</div>
+			<div class="form-group">
+				<label for="variety">Variety of Food:</label>
+				<select id="variety" name="variety">
+					<option value="standard">Standard</option>
+					<option value="deluxe">Deluxe</option>
+					<option value="premium">Premium</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="mealType">Meal Type:</label>
+				<select id="mealType" name="mealType">
+					<option value="breakfast">Breakfast</option>
+					<option value="lunch">Lunch</option>
+					<option value="dinner">Dinner</option>
+					<option value="full-day">Full-Day</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<button type="submit">Calculate Total Cost</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
